@@ -6,46 +6,42 @@ log-level: info
 external-controller: 127.0.0.1:9090
 proxies:
   - name: 🇺🇸 美国 01
-    server: demo.jimubiedao.com
+    server: demo1.jimubiedao.com
     port: 443
     type: trojan
-    password: fshofhos
+    password: AfsfgizoZSp
     skip-cert-verify: false
   - name: 🇺🇸 美国 02
-    server: demo.jimubiedao.com
+    server: demo2.jimubiedao.com
     port: 31287
     type: trojan
-    password: i6mNLWfsix
+    password: AfsfgizoZSp
     skip-cert-verify: false
+  - name: 🇺🇸 美国 03
+    type: ss
+    server: demo3.jimubiedao.com
+    port: 8443
+    cipher: chacha20-ietf-poly1305
+    password: AfsfgizoZSp
+    udp: true
   - name: 🇯🇵 日本 01
-    server: demo.jimubiedao.com
+    server: demo4.jimubiedao.com
     port: 443
     type: trojan
-    password: Adf234k
+    password: AfsfgizoZSp
     udp: true
-    sni: demo.jimubiedao.com
+    sni: demo4.jimubiedao.com
     alpn:
       - h2
       - http/1.1
     skip-cert-verify: false
   - name: 🇯🇵 日本 02
-    server: demo.jimubiedao.com
+    server: demo5.jimubiedao.com
     port: 443
     type: trojan
-    password: fsdf2235
+    password: AfsfgizoZSp
     udp: true
-    sni: demo.jimubiedao.com
-    alpn:
-      - h2
-      - http/1.1
-    skip-cert-verify: false
-  - name: 🇯🇵 日本 03
-    server: demo.jimubiedao.com
-    port: 443
-    type: trojan
-    password: test2021
-    udp: true
-    sni: demo.jimubiedao.com
+    sni: demo5.jimubiedao.com
     alpn:
       - h2
       - http/1.1
@@ -57,9 +53,9 @@ proxy-groups:
       - ♻️ 自动选择
       - 🇺🇸 美国 01
       - 🇺🇸 美国 02
+      - 🇺🇸 美国 03
       - 🇯🇵 日本 01
       - 🇯🇵 日本 02
-      - 🇯🇵 日本 03
       - DIRECT
   - name: ♻️ 自动选择
     type: url-test
@@ -71,7 +67,6 @@ proxy-groups:
       - 🇺🇸 美国 02
       - 🇯🇵 日本 01
       - 🇯🇵 日本 02
-      - 🇯🇵 日本 03
   - name: 🌍 国外媒体
     type: select
     proxies:
@@ -101,6 +96,13 @@ proxy-groups:
       - 🚀 节点选择
       - 🎯 全球直连
       - ♻️ 自动选择
+  - name: 👏 Clubhouse
+    proxies:
+      - 🚀 节点选择
+      - ♻️ 自动选择
+      - DIRECT
+      - 🇺🇸 美国 03
+    type: select
   - name: 🎯 全球直连
     type: select
     proxies:
@@ -1815,5 +1817,82 @@ rules:
   - IP-CIDR,101.198.128.0/18,🎯 全球直连,no-resolve
   - IP-CIDR,101.198.192.0/19,🎯 全球直连,no-resolve
   - IP-CIDR,101.199.196.0/22,🎯 全球直连,no-resolve
+  # 默认走代理，服务器不支持 udp 则走直连规则
+  - IP-CIDR, 3.0.163.78/32, 👏 Clubhouse
+  - IP-CIDR, 13.230.60.35/32, 👏 Clubhouse
+  - IP-CIDR, 23.98.43.152/32, 👏 Clubhouse
+  - IP-CIDR, 23.236.99.0/24, 👏 Clubhouse
+  - IP-CIDR, 23.236.124.12/32, 👏 Clubhouse
+  - IP-CIDR, 23.248.191.0/24, 👏 Clubhouse
+  - IP-CIDR, 23.251.98.0/24, 👏 Clubhouse
+  - IP-CIDR, 23.251.198.58/32, 👏 Clubhouse
+  - IP-CIDR, 35.156.231.0/28, 👏 Clubhouse
+  - IP-CIDR, 35.168.106.0/28, 👏 Clubhouse
+  - IP-CIDR, 35.178.208.187/32, 👏 Clubhouse
+  - IP-CIDR, 38.93.228.0/24, 👏 Clubhouse
+  - IP-CIDR, 45.40.48.11/32, 👏 Clubhouse
+  - IP-CIDR, 45.40.48.114/32, 👏 Clubhouse
+  - IP-CIDR, 45.40.48.115/32, 👏 Clubhouse
+  - IP-CIDR, 45.244.124.105/32, 👏 Clubhouse
+  - IP-CIDR, 45.255.124.0/24, 👏 Clubhouse
+  - IP-CIDR, 50.18.128.0/28, 👏 Clubhouse
+  - IP-CIDR, 52.52.84.170/32, 👏 Clubhouse
+  - IP-CIDR, 52.58.56.244/32, 👏 Clubhouse
+  - IP-CIDR, 52.178.26.110/32, 👏 Clubhouse
+  - IP-CIDR, 52.194.158.59/32, 👏 Clubhouse
+  - IP-CIDR, 52.221.46.0/28, 👏 Clubhouse
+  - IP-CIDR, 54.178.26.0/28, 👏 Clubhouse
+  - IP-CIDR, 65.49.80.0/24, 👏 Clubhouse
+  - IP-CIDR, 65.49.112.0/24, 👏 Clubhouse
+  - IP-CIDR, 69.28.49.169/32, 👏 Clubhouse
+  - IP-CIDR, 69.28.51.148/32, 👏 Clubhouse
+  - IP-CIDR, 103.65.41.0/24, 👏 Clubhouse
+  - IP-CIDR, 103.98.18.189/32, 👏 Clubhouse
+  - IP-CIDR, 103.104.168.244/32, 👏 Clubhouse
+  - IP-CIDR, 103.193.127.0/24, 👏 Clubhouse
+  - IP-CIDR, 103.211.230.149/32, 👏 Clubhouse
+  - IP-CIDR, 103.230.251.246/32, 👏 Clubhouse
+  - IP-CIDR, 103.230.251.252/32, 👏 Clubhouse
+  - IP-CIDR, 104.194.4.0/24, 👏 Clubhouse
+  - IP-CIDR, 107.155.2.163/32, 👏 Clubhouse
+  - IP-CIDR, 107.155.5.220/32, 👏 Clubhouse
+  - IP-CIDR, 122.10.255.165/32, 👏 Clubhouse
+  - IP-CIDR, 128.1.75.150/32, 👏 Clubhouse
+  - IP-CIDR, 128.1.75.151/32, 👏 Clubhouse
+  - IP-CIDR, 128.1.87.196/32, 👏 Clubhouse
+  - IP-CIDR, 128.1.105.156/32, 👏 Clubhouse
+  - IP-CIDR, 128.1.193.0/24, 👏 Clubhouse
+  - IP-CIDR, 128.14.208.0/24, 👏 Clubhouse
+  - IP-CIDR, 128.14.246.0/24, 👏 Clubhouse
+  - IP-CIDR, 128.14.247.0/24, 👏 Clubhouse
+  - IP-CIDR, 129.227.56.0/24, 👏 Clubhouse
+  - IP-CIDR, 129.227.57.0/24, 👏 Clubhouse
+  - IP-CIDR, 129.227.69.0/24, 👏 Clubhouse
+  - IP-CIDR, 129.227.71.0/24, 👏 Clubhouse
+  - IP-CIDR, 129.227.156.0/24, 👏 Clubhouse
+  - IP-CIDR, 129.227.205.0/24, 👏 Clubhouse
+  - IP-CIDR, 129.227.234.0/24, 👏 Clubhouse
+  - IP-CIDR, 148.153.126.0/24, 👏 Clubhouse
+  - IP-CIDR, 148.153.172.0/24, 👏 Clubhouse
+  - IP-CIDR, 154.86.156.199/32, 👏 Clubhouse
+  - IP-CIDR, 157.119.232.0/24, 👏 Clubhouse
+  - IP-CIDR, 162.221.195.47/32, 👏 Clubhouse
+  - IP-CIDR, 164.52.32.0/24, 👏 Clubhouse
+  - IP-CIDR, 164.52.36.0/24, 👏 Clubhouse
+  - IP-CIDR, 164.52.100.0/22, 👏 Clubhouse
+  - IP-CIDR, 164.52.102.0/23, 👏 Clubhouse
+  - IP-CIDR, 172.96.121.30/32, 👏 Clubhouse
+  - IP-CIDR, 184.105.53.0/24, 👏 Clubhouse
+  - IP-CIDR, 192.169.103.238/32, 👏 Clubhouse
+  - IP-CIDR, 199.190.44.0/24, 👏 Clubhouse
+  - IP-CIDR, 209.177.94.18/32, 👏 Clubhouse
+  - IP-CIDR, 202.181.136.0/24, 👏 Clubhouse
+  - IP-CIDR, 202.226.25.0/24, 👏 Clubhouse
+
+  - DOMAIN, ap-oversea-tls.agora.io, 👏 Clubhouse
+  - DOMAIN, ap-oversea.agora.io, 👏 Clubhouse
+  - DOMAIN, ap-oversea2.agora.io, 👏 Clubhouse
+  - DOMAIN, report-oversea.agora.io, 👏 Clubhouse
+
   - GEOIP,CN,🎯 全球直连
   - MATCH,🐟 漏网之鱼
