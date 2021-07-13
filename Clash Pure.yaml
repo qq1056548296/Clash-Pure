@@ -1856,6 +1856,7 @@ rules:
   - IP-CIDR, 104.194.4.0/24, 👏 Clubhouse
   - IP-CIDR, 107.155.2.163/32, 👏 Clubhouse
   - IP-CIDR, 107.155.5.220/32, 👏 Clubhouse
+  - IP-CIDR, 119.81.120.50/32, 👏 Clubhouse
   - IP-CIDR, 122.10.255.165/32, 👏 Clubhouse
   - IP-CIDR, 128.1.75.150/32, 👏 Clubhouse
   - IP-CIDR, 128.1.75.151/32, 👏 Clubhouse
